@@ -17,7 +17,7 @@ private:
 
 
         cout << "\nEnter FirstName: ";
-        Client.FirstName = clsInputValidate::ReadString();
+        Client.FirstName =( clsInputValidate::ReadString());
 
         cout << "\nEnter LastName: ";
         Client.LastName = clsInputValidate::ReadString();
@@ -56,8 +56,14 @@ private:
     }
 
 public:
+
     static void AddNewClient()
     {
+
+        if (!CheckAccessRights(clsUser::enPermissions::pAddNewClient))
+        {
+            return;
+        }
         string Title = "\t  Client Add Screen";
         
 
